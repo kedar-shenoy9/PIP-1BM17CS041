@@ -1,0 +1,45 @@
+
+with open("file_1.txt", "r") as f1:
+	file1Contents = f1.read()
+
+with open("file_2.txt", "r") as f2:
+	file2Contents = f2.read()
+
+file1List = file1Contents.split()
+file2List = file2Contents.split()
+
+i = 0
+j = 0
+outputList = []
+while i<len(file1List) and j<len(file2List):
+	if len(file1List[i])%2 == 0:
+		len1 = len(file1List[i])//2
+	else:
+		len1 = len(file1List[i])//2 + 1
+	if len(file2List[j])%2 == 0:
+		len2 = len(file2List[j])//2
+	else:
+		len2 = len(file2List[j])//2 + 1
+	outputList.append(file1List[i][:len1]+file2List[j][:len2])
+	i += 1
+	j += 1
+
+while i<len(file1List):
+	if len(file1List[i])%2 == 0:
+		len1 = len(file1List[i])//2
+	else:
+		len1 = len(file1List[i])//2 + 1
+	outputList.append(file1List[i][:len1])
+	i += 1
+
+while j<len(file2List):
+	if len(file2List[j])%2 == 0:
+		len2 = len(file2List[j])//2
+	else:
+		len2 = len(file2List[j])//2 + 1
+	outputList.append(file2List[j][:len2])
+	j += 1
+
+outputString = " ".join(outputList)
+with open("output.txt", "w") as f:
+	f.write(outputString)
