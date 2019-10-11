@@ -1,0 +1,28 @@
+class Validity:
+	def __init__(self, string):
+		self.string = string
+		self.d = {')':'(', '}':'{', ']':'['}
+		self.stack = []
+
+	def checkValidity(self):
+		for char in self.string:
+			if char in self.d.values():
+				self.stack.append(char)
+			else:
+				if len(self.stack) > 0:
+					if self.stack[-1] == self.d[char]:
+						self.stack.pop()
+						continue
+				else:
+					return False
+		
+		return len(self.stack) == 0
+
+if __name__ == "__main__":
+	string = input("Enter the string ")
+	valid = Validity(string)
+	if valid.checkValidity():
+		print("Balanced ")
+	else:
+		print("Not Balanced ")
+

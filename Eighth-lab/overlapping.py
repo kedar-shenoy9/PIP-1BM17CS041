@@ -1,0 +1,9 @@
+if __name__ == "__main__":
+	with open("prime.txt") as f:
+		prime = list(map(int, f.read().split(", ")))
+	with open("happy.txt") as f:
+		happy = list(map(int, f.read().split(", ")))
+	prime = set(prime)
+	happy = set(happy)
+	print(" ".join(map(str, prime.intersection(happy))))
+
