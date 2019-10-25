@@ -33,10 +33,10 @@ if __name__ == "__main__":
 	
 	for i in range(n):
 		print("Enter the details of student "+str(i+1))
-		ide = int(input("Id:"))
+		id = int(input("Id:"))
 		marks = int(input("Marks:"))
 		age = int(input("Age:"))
-		students[i].setDetail(ide, marks, age)
+		students[i].setDetails(id, marks, age)
 		
 	for i in range(n):
 		if students[i].checkQualification():
