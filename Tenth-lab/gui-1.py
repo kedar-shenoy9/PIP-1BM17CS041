@@ -26,7 +26,7 @@ class Application(Frame):
 		self.hin.grid(row = 2, column = 0, sticky = W)
 
 		self.kan = Radiobutton(self, text = "Kannada", variable = self.lang, value = "Kannada")
-		self.eng.grid(row = 3, column = 0, sticky = W)
+		self.kan.grid(row = 3, column = 0, sticky = W)
 
 		#check box for movies
 		Label(self, text = "Select the Movie :").grid(row = 4, column = 0, sticky = W)
@@ -54,17 +54,17 @@ class Application(Frame):
 
 		#text box for displaying the message
 		self.messageBox = Entry(self)
-		self.messageBox.grid(row = 10, column = 0, sticky = W)
+		self.messageBox.grid(row = 10, column = 0, columnspan = 2, sticky = W)
 
 	def submit(self):
 		movieLang = self.lang.get()
 		if movieLang.strip() == "":
 			self.messageBox.delete(0, END)
-			self.messageBox.insert(0, "Error")
+			self.messageBox.insert(0, "Error No Language")
 		
 		elif not self.superManLikes.get() and not self.andhadhunLikes.get() and not self.kirikLikes.get():
 			self.messageBox.delete(0, END)
-			self.messageBox.insert(0, "Error")
+			self.messageBox.insert(0, "Error No Movie")
 
 		else:
 			self.messageBox.delete(0, END)
